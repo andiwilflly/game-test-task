@@ -30,8 +30,12 @@ const actions = (self)=> {
 
 			runInAction(`GAMES-FIELD-STEP-SUCCESS (${coordinates})`, ()=> {
 				self.cells.set(`${coordinates[0]}:${coordinates[1]}`, { ...cell, state: store.game.attempt });
+
 				self.checkWinner(cell);
 				store.game.toggleAttempt();
+
+				const isNoEmptyCells = !values(self.cells).find((cell)=> cell.state === "");
+				if(isNoEmptyCells && store.game.status !== "finished") store.game.start();
 			});
 		},
 
