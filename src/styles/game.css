@@ -1,0 +1,35 @@
+.game {
+	margin: 100px auto;
+	width: 700px;
+	padding: 10px;
+	background: whitesmoke;
+	cursor: pointer;
+}
+
+.game-settings {
+}
+
+.game-settings input {
+	padding: 5px;
+	display: block;
+	margin: 5px 0;
+	outline: none;
+}
+
+.game-field {
+	font-size: 11px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: flex-start;
+
+}
+
+.game-field-cell {
+	border: 1px solid darkgray;
+	box-sizing: border-box;
+}
+
+.game-field-cell:hover {
+	background: darkgray;
+}
