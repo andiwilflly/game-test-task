@@ -49,7 +49,9 @@ const actions = (self)=> {
 			const comboYX = self.findCell(x, y, -1, 1) + self.findCell(x, y, 1, -1);
 
 			const combo = Math.max(comboX, comboY, comboXY, comboYX);
-			if(combo+1 === store.game.settings.winCombo) {
+
+			console.log(comboX, 42);
+			if(combo+1 >= store.game.settings.winCombo) {
 				store.game.toggleAttempt();
 				store.game.setWinner();
 			}
