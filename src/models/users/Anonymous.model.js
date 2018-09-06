@@ -3,7 +3,8 @@ import { types } from "mobx-state-tree";
 
 const AnonymousModel = {
 	country: types.maybe(types.string),
-	currency: types.maybe(types.string)
+	currency: types.maybe(types.string),
+	tariffs: types.frozen
 };
 
 

@@ -1,18 +1,27 @@
 import { types } from "mobx-state-tree";
-// Styles
-import "styles/animate.css";
 // Models
-import UserModel from "models/users/UserModel.model";
-
-const UsersModel = {
-	all: types.map(UserModel)
-};
-
+import AuthUserModel from "models/users/AuthUser.model";
+import AnonymousModel from "models/users/Anonymous.model";
+import AdminModel from "models/users/Admin.model";
 
 const actions = (self)=> {
 	return {
+		update(id, user) { }
+	}
+};
+
+const views = (self)=> {
+	return {
+		get say() {
+			console.log("say ROOT plz");
+		}
 	};
 };
 
+const UserModel = types.model({
+	_id: types.string,
+	_role: types.string
+}).actions(actions).views(views);
 
-export default types.model(GameModel).actions(actions);
+
+export default types.compose(AuthUserModel, AnonymousModel, AdminModel, UserModel);

@@ -3,27 +3,27 @@ import { types } from "mobx-state-tree";
 import "styles/animate.css";
 
 
-const UserModel = {
-	currency: types.maybe(types.string),
-	GDPR: types.maybe(types.boolean),
-	country: types.maybe(types.string),
-	created_at: types.maybe(types.number),
-	email: types.maybe(types.string),
-	first_name: types.maybe(types.string),
-	flags: types.maybe(types.number),
-	has_email: types.maybe(types.boolean),
-	has_password: types.maybe(types.boolean),
-	id: types.identifierNumber,
-	phone: types.maybe(types.string),
-	priv: types.maybe(types.number),
-	username: types.maybe(types.string)
+const AdminModel = {
+	permissions: types.frozen
 };
 
 
 const actions = (self)=> {
 	return {
+		getConfig() {}
 	};
 };
 
 
-export default types.model('UserModel', UserModel).actions(actions);
+const views = (self)=> {
+	return {
+		get say() {
+			console.log("say admin plz");
+		},
+		get adminSay() {
+			console.log("admin Say!");
+		}
+	};
+};
+
+export default types.model('AdminModel', AdminModel).actions(actions).views(views);

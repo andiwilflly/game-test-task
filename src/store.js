@@ -4,16 +4,14 @@ import RootModel from "models/Root.model";
 
 
 const store = RootModel.create({
-	game: {
-		status: "initial",
-		attempt: "first",
-		settings: {
-			fieldSize: 15,
-			winCombo: 5,
-			cellSize: 30
+	users: {
+		all: {
+			'anon': {
+				_id: 'anon',
+				_role: 'anon'
+			}
 		},
-		field: {
-		}
+		authUserId: null
 	}
 });
 
